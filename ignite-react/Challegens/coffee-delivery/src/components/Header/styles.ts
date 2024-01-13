@@ -1,29 +1,32 @@
 import { styled } from 'styled-components'
 
-export const HeaderContainer = styled.nav`
+export const HeaderContainer = styled.header`
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
   padding: 2rem 10rem;
+`
 
-  background-color: ${({ theme }) => theme.colors.background};
+export const ActionsContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
 
-  nav {
+  div {
     display: flex;
-    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
 
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    padding: 0.5rem;
+    gap: 0.25rem;
 
-      border-radius: 0.375rem;
-      gap: 0.25rem;
-      padding: 0.5rem;
+    background-color: ${({ theme }) => theme.colors['purple-light']};
+    border-radius: 0.375rem;
 
+    svg {
       color: ${({ theme }) => theme.colors.purple};
-      background-color: ${({ theme }) => theme.colors['purple-light']};
     }
 
     span {
@@ -34,18 +37,17 @@ export const HeaderContainer = styled.nav`
 
       color: ${({ theme }) => theme.colors['purple-dark']};
     }
+  }
 
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 
-      padding: 8px;
-      gap: 4px;
-      border-radius: 0.5rem;
+    padding: 0.5rem;
 
-      color: ${({ theme }) => theme.colors['yellow-dark']};
-      background-color: ${({ theme }) => theme.colors['yellow-light']};
-    }
+    border-radius: 0.375rem;
+    color: ${({ theme }) => theme.colors['yellow-dark']};
+    background-color: ${({ theme }) => theme.colors['yellow-light']};
   }
 `
