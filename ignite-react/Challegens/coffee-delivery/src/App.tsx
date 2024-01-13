@@ -1,10 +1,16 @@
-import coffeeImg from '@/assets/coffees/coffee.svg'
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle } from './styles/global'
+import { Router } from './Router'
+import { defaultTheme } from './styles/themes/default'
 
 export function App() {
   return (
-    <div>
-      <h1>Coffee Delivery</h1>
-      <img src={coffeeImg} alt="Coffee" />
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router />
+        <GlobalStyle />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
