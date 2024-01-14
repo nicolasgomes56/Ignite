@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { fonts } from '../../styles/themes/fonts'
 
 export const HomeContainer = styled.main`
   display: flex;
@@ -12,7 +13,6 @@ export const HomeContainer = styled.main`
 export const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
-  /* background-color: ${({ theme }) => theme.colors['purple-dark']}; */
 `
 
 export const HeroContent = styled.div`
@@ -69,5 +69,26 @@ export const HeroItems = styled.div`
       font-weight: 400;
       line-height: 130%;
     }
+  }
+`
+export const CoffeeList = styled.section`
+  max-width: 1160px;
+  padding-top: 2rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+
+  > h2 {
+    ${fonts.titleL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 40px;
+    grid-column-gap: 32px;
   }
 `

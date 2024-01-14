@@ -13,7 +13,7 @@ import havaianoSvg from '@/assets/coffees/havaiano.svg'
 import arabeSvg from '@/assets/coffees/arabe.svg'
 import irlandesSvg from '@/assets/coffees/irlandes.svg'
 
-interface CoffeeProps {
+export interface ICoffeeProps {
   id: number
   name: string
   description: string
@@ -22,7 +22,7 @@ interface CoffeeProps {
   type: string[]
 }
 
-export const coffeeItens: CoffeeProps[] = [
+export const coffeeItens: ICoffeeProps[] = [
   {
     id: 1,
     name: 'Expresso Tradicional',
@@ -109,7 +109,7 @@ export const coffeeItens: CoffeeProps[] = [
     description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
     price: '9,90',
     image: cubanoSvg,
-    type: ['tradicional', 'alcoólico, gelado'],
+    type: ['tradicional', 'alcoólico', 'gelado'],
   },
   {
     id: 12,

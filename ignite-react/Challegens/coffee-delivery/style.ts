@@ -14,7 +14,9 @@ export const CardContainer = styled.div`
   border-radius: 6px 36px;
   background-color: ${({ theme }) => theme.colors['base-card']};
 
-  padding: 0 1.25rem;
+  > div {
+    padding: 0 1.25rem;
+  }
 `
 
 export const CardImage = styled.img`
@@ -22,16 +24,15 @@ export const CardImage = styled.img`
   width: 120px;
   height: 120px;
 `
-
 export const CardTag = styled.div`
   display: inline-flex;
   justify-content: center;
   align-items: center;
 
-  gap: 4px;
+  gap: 0.25rem;
   margin-top: 0.75rem;
 
-  span {
+  > span {
     padding: 0.25rem 0.5rem;
     border-radius: 100px;
 
@@ -70,12 +71,10 @@ export const CardDescription = styled.p`
   color: ${({ theme }) => theme.colors['base-label']};
 `
 
-export const CardActions = styled.div`
+export const CardBuy = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  margin-top: 32px;
 
   > .card-price {
     display: flex;
@@ -110,7 +109,7 @@ export const CardActions = styled.div`
     }
   }
 
-  > button {
+  button {
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -121,10 +120,25 @@ export const CardActions = styled.div`
 
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors['purple-dark']};
+  }
+`
+
+export const CardActions = styled.div<{ $itemAdded?: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  > button {
+    background-color: ${({ theme, $itemAdded }) =>
+      $itemAdded ? theme.colors['yellow-dark'] : theme.colors['purple-dark']};
     transition: background-color 0.2s;
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.purple};
+      background-color: ${({ theme, $itemAdded }) =>
+        $itemAdded ? theme.colors.yellow : theme.colors.purple};
     }
   }
 `

@@ -1,9 +1,12 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { HeroContainer, HeroContent, HeroItems, HomeContainer } from './style'
-import { CoffeeList } from './components/CoffeeList'
+import { CoffeeList, HeroContainer, HeroContent, HeroItems, HomeContainer } from './style'
+// import { CoffeeList } from './components/CoffeeList'
 import { useTheme } from 'styled-components'
 
 import coffeeImg from '@/assets/coffee.png'
+import { Card } from '../../components/Card'
+
+import { coffeeItens as coffees } from '../../data/coffee'
 
 export function Home() {
   const theme = useTheme()
@@ -59,7 +62,15 @@ export function Home() {
         </HeroContent>
         <img src={coffeeImg} alt="Café" />
       </HeroContainer>
-      <CoffeeList />
+      <CoffeeList>
+        <h2>Nossos cafés</h2>
+
+        <div>
+          {coffees.map(coffee => (
+            <Card key={coffee.id} coffee={coffee} />
+          ))}
+        </div>
+      </CoffeeList>
     </HomeContainer>
   )
 }
