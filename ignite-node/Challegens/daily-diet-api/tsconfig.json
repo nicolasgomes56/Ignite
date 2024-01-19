@@ -10,6 +10,7 @@
     "resolveJsonModule": true,
     "moduleDetection": "force",
 
+    "jsx": "preserve",
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,

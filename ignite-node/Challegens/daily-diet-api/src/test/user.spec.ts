@@ -1,9 +1,9 @@
 import { execSync } from 'node:child_process'
 import request from 'supertest'
-import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest'
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 import { app } from '../app'
 
-describe('User Router', () => {
+describe('User routes', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -17,13 +17,8 @@ describe('User Router', () => {
     execSync('pnpm knex migrate:latest')
   })
 
-  const userSchemaTest = {
-    email: 'johnDoe@test.com.br',
-    password: '123456',
-  }
-
-  it('should be able to create a user', async () => {
-    await request(app.server)
+  it('should be able to create a new user', async () => {
+    const response = await request(app.server)
       .post('/users/register')
       .send({
         name: 'John',
@@ -31,5 +26,11 @@ describe('User Router', () => {
         password: '123456',
       })
       .expect(201)
+
+    const cookies = response.get('Set-Cookie')
+
+    expect(cookies).toEqual(
+      expect.arrayContaining([expect.stringContaining('sessionId')]),
+    )
   })
 })

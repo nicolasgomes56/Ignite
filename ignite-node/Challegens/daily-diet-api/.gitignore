@@ -2,5 +2,7 @@
 .env
 .env.test
 
+src/database/*db
+
 # Dependencies
 node_modules
