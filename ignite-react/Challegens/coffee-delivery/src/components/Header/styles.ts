@@ -1,53 +1,72 @@
 import { styled } from 'styled-components'
+import { fonts } from '../../styles/themes/fonts'
 
-export const HeaderContainer = styled.header`
+export const Container = styled.div`
+  max-width: 1160px;
+  padding: 32px 20px;
+  margin: 0 auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 2rem 10rem;
 `
 
-export const ActionsContainer = styled.div`
+export const Aside = styled.aside`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  gap: 12px;
 
   div {
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    padding: 0.5rem;
-    gap: 0.25rem;
+    gap: 4px;
 
     background-color: ${({ theme }) => theme.colors['purple-light']};
-    border-radius: 0.375rem;
 
     svg {
       color: ${({ theme }) => theme.colors.purple};
     }
 
     span {
-      font-family: 'Roboto', monospace;
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 1.1375rem;
-
       color: ${({ theme }) => theme.colors['purple-dark']};
     }
+
+    padding: 10px 8px;
+    border-radius: 6px;
   }
 
-  button {
+  a {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
 
-    padding: 0.5rem;
-
-    border-radius: 0.375rem;
-    color: ${({ theme }) => theme.colors['yellow-dark']};
     background-color: ${({ theme }) => theme.colors['yellow-light']};
+    color: ${({ theme }) => theme.colors['yellow-dark']};
+
+    padding: 8px;
+    border-radius: 6px;
+
+    position: relative;
+
+    &[aria-disabled='true'] {
+      pointer-events: none;
+    }
+
+    span {
+      ${fonts.textS};
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors['yellow-dark']};
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      transform: translate(50%, -50%);
+    }
   }
 `

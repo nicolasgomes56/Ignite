@@ -1,7 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { CoffeeList, HeroContainer, HeroContent, HeroItems, HomeContainer } from './style'
-// import { CoffeeList } from './components/CoffeeList'
 import { useTheme } from 'styled-components'
+import { CoffeeList, HeroContainer, HeroContent, HeroItems, HomeContainer } from './style'
 
 import coffeeImg from '@/assets/coffee.png'
 import { Card } from '../../components/Card'
