@@ -7,11 +7,11 @@ export const config: Knex.Config = {
     env.DATABASE_URL === 'sqlite'
       ? { filename: env.DATABASE_URL }
       : env.DATABASE_URL,
-  useNullAsDefault: true,
   migrations: {
     extension: 'ts',
     directory: 'src/database/migrations',
   },
+  useNullAsDefault: true,
 }
 
 export const knex = setupKnex(config)

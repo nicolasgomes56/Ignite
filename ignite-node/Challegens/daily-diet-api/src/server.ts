@@ -7,8 +7,8 @@ import { env } from './env'
 
 app.register(cookie, {} as FastifyCookieOptions)
 
-app.register(UserController, { prefix: '/users' })
-app.register(SnackController, { prefix: '/snacks' })
+app.register(UserController, { prefix: 'users' })
+app.register(SnackController, { prefix: 'snacks' })
 
 app
   .listen({
@@ -16,5 +16,5 @@ app
     port: env.PORT,
   })
   .then(() => {
-    console.log('Server is running at http://localhost:3333')
+    console.log(`Server listening on http://localhost:${env.PORT}`)
   })

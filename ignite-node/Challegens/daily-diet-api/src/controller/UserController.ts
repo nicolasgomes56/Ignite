@@ -8,7 +8,6 @@ export async function UserController(app: FastifyInstance) {
     const createUserBodySchema = z.object({
       name: z.string(),
       email: z.string().email(),
-      password: z.string().min(6),
     })
 
     let sessionId = request.cookies.sessionId
@@ -22,7 +21,7 @@ export async function UserController(app: FastifyInstance) {
       })
     }
 
-    const { name, email, password } = createUserBodySchema.parse(request.body)
+    const { name, email } = createUserBodySchema.parse(request.body)
 
     const user = await knex('users').where({ email }).first()
 
@@ -32,10 +31,10 @@ export async function UserController(app: FastifyInstance) {
 
     await knex('users').insert({
       id: randomUUID(),
+      session_id: sessionId,
       name,
       email,
-      password,
-      session_id: sessionId,
+      created_at: new Date(),
     })
 
     return reply.status(201).send()
