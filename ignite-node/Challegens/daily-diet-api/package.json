@@ -8,6 +8,8 @@
     "knex": "node --import tsx ./node_modules/knex/bin/cli.js",
     "build": "tsup src --out-dir build",
     "lint:fix": "eslint --fix src",
+    "prettier": "prettier --write src",
+    "prettier:check": "prettier --check src",
     "test": "vitest --run"
   },
   "keywords": [],
