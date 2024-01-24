@@ -1,9 +1,8 @@
+import coffeeImg from '@/assets/coffee.png'
+import { Card } from '@/components/Card'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { useTheme } from 'styled-components'
 import { CoffeeList, HeroContainer, HeroContent, HeroItems, HomeContainer } from './style'
-
-import coffeeImg from '@/assets/coffee.png'
-import { Card } from '../../components/Card'
 
 import { coffeeItens as coffees } from '../../data/coffee'
 

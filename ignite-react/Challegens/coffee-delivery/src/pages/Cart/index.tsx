@@ -1,8 +1,8 @@
+import { useCart } from '@/hooks/useCart'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { MapPinLine } from 'phosphor-react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
-import { useCart } from '../../hooks/useCart'
 import {
   CartContainer,
   CartFormAddress,

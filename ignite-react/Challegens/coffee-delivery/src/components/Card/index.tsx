@@ -1,8 +1,8 @@
-import { CardActions, CardContainer, CardDescription, CardImage, CardTag, CardTitle } from './style'
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { useTheme } from 'styled-components'
+import { CardActions, CardContainer, CardDescription, CardImage, CardTag, CardTitle } from './style'
 
-import { type ICoffeeProps } from '../../data/coffee'
+import { type ICoffeeProps } from '@/data/coffee'
 
 interface ICardProps {
   coffee: ICoffeeProps

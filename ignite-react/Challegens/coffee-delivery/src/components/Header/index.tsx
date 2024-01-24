@@ -1,6 +1,6 @@
+import { useCart } from '@/hooks/useCart'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import { Link } from 'react-router-dom'
-import { useCart } from '../../hooks/useCart'
 import { Aside, Container } from './styles'
 
 export function Header() {
