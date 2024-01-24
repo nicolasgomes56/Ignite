@@ -7,9 +7,7 @@
     "dev": "tsx watch src/server.ts",
     "knex": "node --import tsx ./node_modules/knex/bin/cli.js",
     "build": "tsup src --out-dir build",
-    "lint:fix": "eslint --fix src",
-    "prettier": "prettier --write src",
-    "prettier:check": "prettier --check src",
+    "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "test": "vitest --run"
   },
   "keywords": [],

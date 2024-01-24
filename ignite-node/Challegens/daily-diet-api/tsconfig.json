@@ -22,7 +22,7 @@
     "lib": ["ES2022", "DOM"],
 
     "baseUrl": ".",
-    "rootDir": "./src",
+    // "rootDir": "./src",
     "paths": {
       "@/*": [
         "src/*"
