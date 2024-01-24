@@ -1,9 +1,9 @@
-import { randomUUID } from 'crypto'
 import { FastifyInstance } from 'fastify'
 import knex from 'knex'
+import { randomUUID } from 'node:crypto'
 import z from 'zod'
 
-export async function UserController(app: FastifyInstance) {
+export async function usersRoutes(app: FastifyInstance) {
   app.post('/', async (request, reply) => {
     const createUserBodySchema = z.object({
       name: z.string(),
@@ -23,18 +23,17 @@ export async function UserController(app: FastifyInstance) {
 
     const { name, email } = createUserBodySchema.parse(request.body)
 
-    const user = await knex('users').where({ email }).first()
+    const userByEmail = await knex('users').where({ email }).first()
 
-    if (user) {
-      return reply.status(400).send({ error: 'User already exists' })
+    if (userByEmail) {
+      return reply.status(400).send({ message: 'User already exists' })
     }
 
     await knex('users').insert({
       id: randomUUID(),
-      session_id: sessionId,
       name,
       email,
-      created_at: new Date(),
+      session_id: sessionId,
     })
 
     return reply.status(201).send()

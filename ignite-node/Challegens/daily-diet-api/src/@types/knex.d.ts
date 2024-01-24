@@ -1,21 +1,25 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import 'knex'
 
 declare module 'knex/types/tables' {
   export interface Tables {
     users: {
       id: string
+      session_id: string
       name: string
       email: string
-      password: string
       created_at: string
+      updated_at: string
     }
-    snacks: {
+
+    meals: {
       id: string
+      user_id: string
       name: string
-      session_id: string
       description: string
-      isValidDiet: boolean
+      is_on_diet: boolean
+      date: number // unix timestamp
       created_at: string
+      updated_at: string
     }
   }
 }
