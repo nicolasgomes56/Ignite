@@ -2,27 +2,44 @@ import styled from 'styled-components'
 import { fonts } from '../../styles/themes/fonts'
 
 export const HomeContainer = styled.main`
-  display: flex;
-  flex-direction: column;
-  padding: 6.438rem 10rem;
-  gap: 3.5rem;
+position: relative;
 
-  color: ${({ theme }) => theme.colors.white};
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 544px;
+    width: 100vw;
+    object-fit: cover;
+  }
+
 `
 
 export const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 544px;
+    width: 100vw;
+    object-fit: cover;
+  }
 `
 
 export const HeroContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 588px;
-  align-items: flex-start;
+  position: relative;
 
-  gap: 1rem;
-  margin-right: 3.5rem;
+img#hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 544px;
+  width: 100vw;
+  object-fit: cover;
+}
 
   h1 {
     align-self: stretch;

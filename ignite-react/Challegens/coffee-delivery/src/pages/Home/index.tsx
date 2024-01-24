@@ -1,4 +1,4 @@
-import coffeeImg from '@/assets/coffee.png'
+import coffeeImg from '@/assets/hero-bg.svg'
 import { Card } from '@/components/Card'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { useTheme } from 'styled-components'
@@ -57,8 +57,9 @@ export function Home() {
               <span>O café chega fresquinho até você</span>
             </div>
           </HeroItems>
+          <img src="/hero.svg" alt="Café" />
         </HeroContent>
-        <img src={coffeeImg} alt="Café" />
+        <img src={coffeeImg} className="hero-bg" alt="Café" />
       </HeroContainer>
       <CoffeeList>
         <h2>Nossos cafés</h2>
