@@ -27,7 +27,7 @@ import {
 interface CartFormInput {
   cep: number
   rua: string
-  numero: number
+  numero: string
   complemento: string
   bairro: string
   city: string
@@ -38,7 +38,7 @@ interface CartFormInput {
 const newOrder = z.object({
   cep: z.number({ invalid_type_error: 'Informe o Cep' }),
   rua: z.string().min(1, 'Informe a Rua'),
-  numero: z.number().min(1, 'Informe o número'),
+  numero: z.string().min(1, 'Informe o número'),
   complemento: z.string(),
   bairro: z.string().min(1, 'Informe o Bairro'),
   city: z.string().min(1, 'Informe a Cidade'),
@@ -110,7 +110,7 @@ export function Cart() {
       <CartInfoContainer>
         <h2>Complete seu pedido</h2>
 
-        <form onSubmit={handleSubmit(handleOrderCheckout)}>
+        <form id="order" onSubmit={handleSubmit(handleOrderCheckout)}>
           <CartFormAddress>
             <CartAddressHeading>
               <MapPin size={22} />

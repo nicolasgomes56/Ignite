@@ -32,8 +32,6 @@ export function Card({ coffee }: ICardProps) {
   const theme = useTheme()
 
   function handleAddItem() {
-    console.log(coffee.id, quantity)
-
     addItem({ id: coffee.id, quantity })
     setIsItemAdded(true)
     setQuantity(1)
