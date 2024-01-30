@@ -3,3 +3,6 @@ build
 
 .env
 .env.test
+
+# Ignore migration prisma
+prisma/migrations
