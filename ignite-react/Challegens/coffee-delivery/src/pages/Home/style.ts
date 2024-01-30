@@ -1,25 +1,10 @@
-import styled from 'styled-components'
-import { fonts } from '../../styles/themes/fonts'
+import { fonts } from '@/styles/themes/fonts'
+import { styled } from 'styled-components'
 
-export const HomeContainer = styled.main`
-position: relative;
+export const HeroContainer = styled.section`
+  position: relative;
 
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-height: 544px;
-    width: 100vw;
-    object-fit: cover;
-  }
-
-`
-
-export const HeroContainer = styled.div`
-  display: flex;
-  justify-content: center;
-
-  .hero-bg {
+  img#hero-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,67 +15,58 @@ export const HeroContainer = styled.div`
 `
 
 export const HeroContent = styled.div`
-  position: relative;
+  max-width: 1160px;
+  padding: 92px 20px;
+  margin: 0 auto;
 
-img#hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-height: 544px;
-  width: 100vw;
-  object-fit: cover;
-}
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+  justify-content: space-between;
 
-  h1 {
-    align-self: stretch;
-    font-family: 'Baloo 2';
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 130%;
-
-    color: ${({ theme }) => theme.colors['base-title']};
-  }
-
-  p {
-    font-family: 'Roboto';
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 130%;
-
-    color: ${({ theme }) => theme.colors['base-subtitle']};
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 66px;
   }
 `
 
-export const HeroItems = styled.div`
+export const HeroHeading = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  > h1 {
+    ${fonts.titleXL}
+    color: ${({ theme }) => theme.colors['base-title']}
+  }
+
+  > span {
+    ${fonts.textL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
+  }
+`
+
+export const HeroInfo = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
 
-  gap: 0.75rem;
-  margin-top: 4.13rem;
-
-  color: ${({ theme }) => theme.colors['base-subtitle']};
-
-  div {
+  > div {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 12px;
 
     svg {
-      padding: 0.5rem;
-      border-radius: 999%;
-    }
-
-    > span {
-      font-family: 'Roboto';
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 130%;
+      padding: 8px;
+      border-radius: 999px;
     }
   }
 `
+
 export const CoffeeList = styled.section`
   max-width: 1160px;
-  padding-top: 2rem;
+  padding: 32px 20px 150px;
   margin: 0 auto;
 
   display: flex;

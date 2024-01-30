@@ -1,43 +1,104 @@
-import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { useCart } from '@/hooks/useCart'
+import { Check, ShoppingCart } from 'phosphor-react'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
-import { CardActions, CardContainer, CardDescription, CardImage, CardTag, CardTitle } from './style'
-
-import { type ICoffeeProps } from '@/data/coffee'
+import { QuantityInput } from '../QuantityInput'
+import {
+  CardContainer,
+  CardControl,
+  CardDescription,
+  CardOrder,
+  CardPrice,
+  CardTags,
+  CardTitle,
+  CoffeeImg,
+} from './style'
 
 interface ICardProps {
-  coffee: ICoffeeProps
+  coffee: {
+    id: string
+    title: string
+    description: string
+    tags: string[]
+    price: number
+    image: string
+  }
 }
 
 export function Card({ coffee }: ICardProps) {
+  const [quantity, setQuantity] = useState(1)
+  const [isItemAdded, setIsItemAdded] = useState(false)
+  const { addItem } = useCart()
   const theme = useTheme()
+
+  function handleAddItem() {
+    console.log(coffee.id, quantity)
+
+    addItem({ id: coffee.id, quantity })
+    setIsItemAdded(true)
+    setQuantity(1)
+  }
+
+  function incrementQuantity() {
+    setQuantity(state => state + 1)
+  }
+
+  function decrementQuantity() {
+    if (quantity > 1) {
+      setQuantity(state => state - 1)
+    }
+  }
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout
+
+    if (isItemAdded) {
+      timeout = setTimeout(() => {
+        setIsItemAdded(false)
+      }, 2000)
+    }
+
+    return () => {
+      if (timeout) clearTimeout(timeout)
+    }
+  }, [isItemAdded])
+
   return (
     <CardContainer>
-      <CardImage src={coffee.image} alt="Café" />
-      <div>
-        <CardTag>
-          {coffee.type.map(type => (
-            <span>{type}</span>
-          ))}
-        </CardTag>
-        <CardTitle>{coffee.name}</CardTitle>
-        <CardDescription>{coffee.description}</CardDescription>
-        <CardActions>
-          <div className="card-price">
-            <span>R$</span>
-            <span>4,00</span>
-          </div>
+      <CoffeeImg src={coffee.image} alt={coffee.title} />
 
-          <div className="card-counter">
-            <Minus size={14} weight="bold" color={theme.colors.purple} />
-            <span>1</span>
-            <Plus size={14} weight="bold" color={theme.colors.purple} />
-          </div>
+      <CardTags>
+        {coffee.tags.map(tag => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </CardTags>
 
-          <button>
-            <ShoppingCart size={22} weight="fill" />
+      <CardTitle>{coffee.title}</CardTitle>
+
+      <CardDescription>{coffee.description}</CardDescription>
+
+      <CardControl>
+        <CardPrice>
+          <span>R$</span>
+          <span>{coffee.price.toFixed(2)}</span>
+        </CardPrice>
+
+        <CardOrder $itemAdded={isItemAdded}>
+          <QuantityInput
+            quantity={quantity}
+            incrementQuantity={incrementQuantity}
+            decrementQuantity={decrementQuantity}
+          />
+
+          <button disabled={isItemAdded} onClick={handleAddItem}>
+            {isItemAdded ? (
+              <Check weight="fill" size={22} color={theme.colors['base-card']} />
+            ) : (
+              <ShoppingCart size={22} color={theme.colors['base-card']} />
+            )}
           </button>
-        </CardActions>
-      </div>
+        </CardOrder>
+      </CardControl>
     </CardContainer>
   )
 }

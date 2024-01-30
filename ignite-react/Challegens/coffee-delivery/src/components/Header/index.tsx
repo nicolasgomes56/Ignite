@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Aside, Container } from './styles'
 
 export function Header() {
-  const cart = useCart()
+  const { cart } = useCart()
   return (
     <Container>
       <Link to="/">
