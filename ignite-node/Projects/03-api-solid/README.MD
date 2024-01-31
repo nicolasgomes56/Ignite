@@ -1,6 +1,18 @@
 ### Dicas
 - Instalar o pacote renovate para atualizar automaticamente as dependencias do projeto
 
+## Anotações
+ ### SOLID
+
+ ### Repositório
+    - Repositorios todas as operações com o banco de dados vão passar pelos repositórios
+    - Repositórios possuem apenas metodos que fazem operações com o banco de dados
+    - Repositórios não devem ter responsabilidade sobre os erros
+
+ ### Use Cases
+    - Use Cases são responsáveis por toda a regra de negócio da aplicação
+    - Use Cases não devem ter responsabilidade sobre os erros
+
 ## Comandos
 #### Prisma
 - `prisma migrate dev` - Cria as tabelas no banco de dados
