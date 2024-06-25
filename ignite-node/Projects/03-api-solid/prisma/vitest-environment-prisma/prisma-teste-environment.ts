@@ -11,4 +11,5 @@ export default <Environment>(<unknown>{
       },
     }
   },
+  transformMode: 'ssr',
 })
