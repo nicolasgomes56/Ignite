@@ -7,15 +7,16 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [
-			"node_modules",
-			"dist",
-			"build"
-		]
+		"ignore": ["node_modules", "dist", "build"]
 	},
 	"formatter": {
 		"enabled": true,
+		"formatWithErrors": false,
+		"ignore": [],
+		"attributePosition": "auto",
 		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
 		"lineWidth": 80
 	},
 	"organizeImports": {
@@ -29,7 +30,19 @@
 	},
 	"javascript": {
 		"formatter": {
+			"arrowParentheses": "always",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"semicolons": "always",
+			"trailingCommas": "all",
 			"quoteStyle": "single"
+		}
+	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
 		}
 	}
 }

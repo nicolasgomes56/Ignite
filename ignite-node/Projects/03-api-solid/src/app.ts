@@ -1,3 +1,3 @@
-import fastity from "fastify";
+import fastity from 'fastify';
 
 export const app = fastity();
