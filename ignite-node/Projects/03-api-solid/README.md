@@ -7,9 +7,9 @@
 
 ## RFs (Requisitos funcionais)
 
-- [ ] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar;
-- [ ] Deve ser possível obter o perfil de um usuário logado;
+- [x] Deve ser possível se cadastrar;
+- [x] Deve ser possível se autenticar;
+- [x] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário;
 - [ ] Deve ser possível o usuário obter seu histórico de check-ins;
 - [ ] Deve ser possível o usuário buscar academias próximas;
@@ -20,7 +20,7 @@
 
 ## RNs (Regras de negócio)
 
-- [ ] O usuário não deve se cadastrar com um email duplicado;
+- [x] O usuário não deve se cadastrar com um email duplicado;
 - [ ] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [ ] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [ ] O Check-in só pode ser validado até 20 minutos após criado;
