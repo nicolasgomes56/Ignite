@@ -15,7 +15,7 @@
 - [x] Deve ser possível o usuário buscar academias próximas;
 - [x] Deve ser possível o usuário buscar academias pelo nome;
 - [x] Deve ser possível o usuário realizar check-in em uma academia;
-- [ ] Deve ser possível validar o check-in de um usuário;
+- [x] Deve ser possível validar o check-in de um usuário;
 - [x] Deve ser possível cadastrar uma academia;
 
 ## RNs (Regras de negócio)
@@ -23,7 +23,7 @@
 - [x] O usuário não deve se cadastrar com um email duplicado;
 - [x] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [x] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
-- [ ] O Check-in só pode ser validado até 20 minutos após criado;
+- [x] O Check-in só pode ser validado até 20 minutos após criado;
 - [ ] O Check-in só pode ser validado por administradores;
 - [ ] A Academia só pode ser cadastrada por administradores;
 
